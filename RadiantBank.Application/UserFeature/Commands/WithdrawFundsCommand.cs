@@ -26,7 +26,7 @@ public class WithdrawFundsCommandHandler : IRequestHandler<WithdrawFundsCommand,
         var isWithdrawn = await _accountService
             .WithdrawFromAccountAsync(request.UserId, request.AccountNumber, withdrawAmount)
             .ConfigureAwait(false);
-        var message = $"Successfully deposited {withdrawAmount}";
+        var message = $"Successfully withdrawn {withdrawAmount}";
         if (!isWithdrawn)
         {
             message = $"Unable to withdraw {withdrawAmount}. Deposit amount should be at least 1." +
